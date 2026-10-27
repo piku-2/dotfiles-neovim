@@ -13,20 +13,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
 })
-
--- blink のメニュー中は Copilot のゴーストテキストを隠す
-vim.api.nvim_create_autocmd("User", {
-  group = group,
-  pattern = "BlinkCmpMenuOpen",
-  callback = function()
-    vim.b.copilot_suggestion_hidden = true
-  end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  group = group,
-  pattern = "BlinkCmpMenuClose",
-  callback = function()
-    vim.b.copilot_suggestion_hidden = false
-  end,
-})

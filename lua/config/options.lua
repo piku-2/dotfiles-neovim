@@ -1,8 +1,8 @@
 -- LazyVim の既定のあとで読む。ここには差分だけ。
 
--- インラインの Copilot。blink の補完源にはしない。
-vim.g.ai_cmp = false
+-- 補完は LSP だけ。Copilot は extra もプラグインも載せない。
 vim.g.snacks_animate = false
+vim.lsp.log.set_level("OFF")
 vim.g.lazyvim_python_lsp = "basedpyright"
 
 -- 選択は Ghostty の copy-on-select。

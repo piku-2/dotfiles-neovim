@@ -9,7 +9,7 @@ return {
       opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft or {}, {
         c = { "clang-format" },
         cpp = { "clang-format" },
-        python = { "ruff_format" },
+        python = { "ruff_organize_imports", "ruff_format" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
@@ -28,6 +28,7 @@ return {
           end,
         },
         ruff_format = { command = bin("ruff") },
+        ruff_organize_imports = { command = bin("ruff") },
         -- stylua.toml が無い Lua（Hyprland など）は触らない。
         stylua = {
           condition = function(_, ctx)
