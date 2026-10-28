@@ -30,7 +30,6 @@ vim.opt.laststatus = 0
 vim.opt.cursorline = true
 vim.cmd.colorscheme("catppuccin-mocha-lite")
 
--- キーマップ
 vim.keymap.set("i", "jj", "<Esc>", { desc = "jj でノーマルモードへ" })
 vim.keymap.set("t", "jj", [[<C-\><C-n>]], { desc = "jj でターミナルノーマルモードへ" })
 vim.keymap.set({ "n", "x" }, "j", function()
