@@ -1,8 +1,9 @@
-# 💤 LazyVim
+# nvim
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+プラグインなし。この `init.lua` だけで動く。
 
-なるべくVimに近づける。
-無駄な機能いらない。てか邪魔。
-書くことに特化したコードエディタを目指して。
+- インデントはタブ、幅 4
+- 長い行は折り返す。カウントなしの `j` / `k` は画面上の行を移動する
+- 挿入モードとターミナルモードは `jj` で抜ける
+- Space `f` で、今のディレクトリ以下のファイル名を部分一致で開く
+- 同梱パーサがある言語だけ treesitter で色が付く。無ければ標準の syntax
