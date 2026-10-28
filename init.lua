@@ -1,9 +1,11 @@
 -- プラグインなし。入っている Neovim だけで動く。
 
+-- 連携機能を読み込まないようにする。
 for _, provider in ipairs({ "python3", "ruby", "perl", "node" }) do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
+-- vim.options は Lua で書くときの推奨方法。vim.o は古い書き方。
 vim.g.mapleader = " "
 
 vim.opt.tabstop = 4
@@ -22,11 +24,13 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.laststatus = 0
 
 -- 配色: Catppuccin Mocha 風（colors/catppuccin-mocha-lite.lua）
 vim.opt.cursorline = true
 vim.cmd.colorscheme("catppuccin-mocha-lite")
 
+-- キーマップ
 vim.keymap.set("i", "jj", "<Esc>", { desc = "jj でノーマルモードへ" })
 vim.keymap.set("t", "jj", [[<C-\><C-n>]], { desc = "jj でターミナルノーマルモードへ" })
 vim.keymap.set({ "n", "x" }, "j", function()
@@ -45,6 +49,7 @@ local skip_dir = {
   ["dist"] = true,
 }
 
+-- cwd 以下のファイルを名前で開く。<leader>f に割り当て。
 local function open_file()
   local query = vim.fn.input({ prompt = "file: ", cancelreturn = "" })
   if query == "" then
