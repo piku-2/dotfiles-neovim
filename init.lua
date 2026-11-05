@@ -48,6 +48,15 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "検索ハイライ
 -- netrw
 vim.g.netrw_banner = 0
 
+-- 改行時に自動でコメントが継続するのを防ぐ
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("no_auto_comment", { clear = true }),
+	pattern = "*",
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
+
 -- .editorconfig の indent_style があるバッファは、そちらのままにする。
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("python_indent", { clear = true }),
